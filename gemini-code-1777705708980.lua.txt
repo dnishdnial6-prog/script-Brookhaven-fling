@@ -1,0 +1,531 @@
+local ValidKeys = {
+    "Free_7A3F9C2B1E8D4A6F",
+    "Free_1B9E7A3F4C8D2E6A",
+    "Free_4F8C1A7D3B9E2D6C",
+    "Free_8D3A6F1B7C2E9A4F",
+    "Free_2C9A7E4D1B8F3A6D",
+    "Free_6F1A3C9D7E2B8A4C",
+    "Free_1D8F3A7C9E2B6A4F",
+    "Free_5A2E8D1C7F3B9A6D",
+    "Free_3C7F1A9D8E2B6A4F",
+    "Free_7E1A4C9D2B8F3A6C",
+    "Free_B4E7A1D3C9F2A6D8",
+    "Free_8A1F3C7D9E2B4A6C",
+    "Free_2D7A9F1C8B3E6A4D",
+    "Free_9F1A4D7C2B8E3A6C",
+    "Free_6A3D9C1E7F2B8A4C",
+    "Free_1C8A3F7D9E2B4A6D",
+    "Free_5D2A9F1C8B3E7A4C",
+    "Free_3E7A1C9D8F2B6A4D",
+    "Free_7C1A4D9E2B8F3A6D",
+    "Free_4A9E1D7C2B8F3A6C"
+}
+
+local GetKeyLink = "https://linkvertise.com/4410529/6m3pjW2WbJWq?o=sharing"
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+local function notify(title, text)
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = title,
+        Text = text,
+        Icon = "rbxassetid://6023426926",
+        Duration = 4
+    })
+end
+
+-----------------------------------------
+-- SISTEM GET KEY (LOGIN)
+-----------------------------------------
+local KeyFrame = Instance.new("Frame")
+local KeyCorner = Instance.new("UICorner")
+local KeyTitle = Instance.new("TextLabel")
+local KeyInput = Instance.new("TextBox")
+local SubmitKeyBtn = Instance.new("TextButton")
+local GetKeyBtn = Instance.new("TextButton")
+local CopyRightText = Instance.new("TextLabel")
+
+KeyFrame.Name = "KeySystem"
+KeyFrame.Parent = ScreenGui
+KeyFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+KeyFrame.Position = UDim2.new(0.5, -125, 0.5, -100)
+KeyFrame.Size = UDim2.new(0, 250, 0, 200)
+KeyFrame.Active = true
+KeyFrame.Draggable = true
+KeyCorner.CornerRadius = UDim.new(0, 12)
+KeyCorner.Parent = KeyFrame
+
+KeyTitle.Parent = KeyFrame
+KeyTitle.Size = UDim2.new(1, 0, 0, 40)
+KeyTitle.Text = "LOGIN SCRIPT"
+KeyTitle.TextColor3 = Color3.fromRGB(0, 255, 150)
+KeyTitle.Font = Enum.Font.GothamBold
+KeyTitle.TextSize = 18
+KeyTitle.BackgroundTransparency = 1
+
+KeyInput.Parent = KeyFrame
+KeyInput.Size = UDim2.new(0, 210, 0, 40)
+KeyInput.Position = UDim2.new(0, 20, 0, 50)
+KeyInput.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+KeyInput.TextColor3 = Color3.new(1, 1, 1)
+KeyInput.PlaceholderText = "Enter Key Here..."
+KeyInput.Font = Enum.Font.Gotham
+KeyInput.TextSize = 14
+Instance.new("UICorner", KeyInput).CornerRadius = UDim.new(0, 8)
+
+SubmitKeyBtn.Parent = KeyFrame
+SubmitKeyBtn.Size = UDim2.new(0, 210, 0, 35)
+SubmitKeyBtn.Position = UDim2.new(0, 20, 0, 100)
+SubmitKeyBtn.BackgroundColor3 = Color3.fromRGB(0, 170, 90)
+SubmitKeyBtn.Text = "VERIFY KEY"
+SubmitKeyBtn.TextColor3 = Color3.new(1, 1, 1)
+SubmitKeyBtn.Font = Enum.Font.GothamBold
+Instance.new("UICorner", SubmitKeyBtn).CornerRadius = UDim.new(0, 8)
+
+GetKeyBtn.Parent = KeyFrame
+GetKeyBtn.Size = UDim2.new(0, 210, 0, 25)
+GetKeyBtn.Position = UDim2.new(0, 20, 0, 145)
+GetKeyBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+GetKeyBtn.Text = "Get Key"
+GetKeyBtn.TextColor3 = Color3.new(1, 1, 1)
+GetKeyBtn.Font = Enum.Font.Gotham
+Instance.new("UICorner", GetKeyBtn).CornerRadius = UDim.new(0, 8)
+
+CopyRightText.Parent = KeyFrame
+CopyRightText.Size = UDim2.new(1, 0, 0, 20)
+CopyRightText.Position = UDim2.new(0, 0, 1, -25)
+CopyRightText.Text = "© Created by @dshnoobie"
+CopyRightText.TextColor3 = Color3.fromRGB(100, 100, 100)
+CopyRightText.Font = Enum.Font.GothamSemibold
+CopyRightText.TextSize = 11
+CopyRightText.BackgroundTransparency = 1
+
+GetKeyBtn.MouseButton1Click:Connect(function()
+    if setclipboard then
+        setclipboard(GetKeyLink)
+        notify("Link Copied!", "Paste in your browser to get the key.")
+    else
+        notify("Manual Link", "Get Key Here: " .. GetKeyLink)
+    end
+end)
+
+-----------------------------------------
+-- MAIN HUB (TERBUKA SETELAH LOGIN)
+-----------------------------------------
+local function LoadMainHub()
+    local MainFrame = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local TopBar = Instance.new("Frame")
+    local Title = Instance.new("TextLabel")
+    local MinimizeButton = Instance.new("TextButton")
+    local CloseButton = Instance.new("TextButton")
+    local Container = Instance.new("ScrollingFrame")
+    local UIListLayout = Instance.new("UIListLayout")
+    local Watermark = Instance.new("TextLabel")
+
+    MainFrame.Name = "EZHubV2"
+    MainFrame.Parent = ScreenGui
+    MainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    MainFrame.BorderSizePixel = 0
+    MainFrame.Position = UDim2.new(0.5, -115, 0.5, -200)
+    MainFrame.Size = UDim2.new(0, 230, 0, 420)
+    MainFrame.Active = true
+    MainFrame.Draggable = true
+    MainFrame.ClipsDescendants = true
+
+    UICorner.CornerRadius = UDim.new(0, 12)
+    UICorner.Parent = MainFrame
+
+    Watermark.Parent = MainFrame
+    Watermark.Size = UDim2.new(1, 0, 0, 20)
+    Watermark.Position = UDim2.new(0, 0, 1, -22)
+    Watermark.Text = "Made with ❤️ by @dshnoobie"
+    Watermark.TextColor3 = Color3.fromRGB(80, 80, 80)
+    Watermark.Font = Enum.Font.GothamSemibold
+    Watermark.TextSize = 11
+    Watermark.BackgroundTransparency = 1
+
+    TopBar.Name = "TopBar"
+    TopBar.Parent = MainFrame
+    TopBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    TopBar.Size = UDim2.new(1, 0, 0, 35)
+    TopBar.BorderSizePixel = 0
+    Instance.new("UICorner", TopBar).CornerRadius = UDim.new(0, 12)
+
+    Title.Parent = TopBar
+    Title.Size = UDim2.new(1, -70, 1, 0)
+    Title.Position = UDim2.new(0, 12, 0, 0)
+    Title.Text = "EZHUB - V2"
+    Title.TextColor3 = Color3.fromRGB(0, 255, 150)
+    Title.Font = Enum.Font.GothamBold
+    Title.TextSize = 14
+    Title.TextXAlignment = Enum.TextXAlignment.Left
+    Title.BackgroundTransparency = 1
+
+    local function createTopBtn(text, pos, color)
+        local btn = Instance.new("TextButton")
+        btn.Parent = TopBar
+        btn.Size = UDim2.new(0, 25, 0, 25)
+        btn.Position = pos
+        btn.BackgroundColor3 = color
+        btn.Text = text
+        btn.TextColor3 = Color3.new(1, 1, 1)
+        btn.Font = Enum.Font.GothamBold
+        Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+        return btn
+    end
+
+    MinimizeButton = createTopBtn("-", UDim2.new(1, -60, 0, 5), Color3.fromRGB(60, 60, 60))
+    CloseButton = createTopBtn("×", UDim2.new(1, -30, 0, 5), Color3.fromRGB(180, 50, 50))
+
+    Container.Parent = MainFrame
+    Container.Position = UDim2.new(0, 10, 0, 45)
+    Container.Size = UDim2.new(1, -20, 1, -75)
+    Container.BackgroundTransparency = 1
+    Container.ScrollBarThickness = 2
+    Container.CanvasSize = UDim2.new(0, 0, 0, 370)
+
+    UIListLayout.Parent = Container
+    UIListLayout.Padding = UDim.new(0, 8)
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+    local UserInput = Instance.new("TextBox")
+    local RandomButton = Instance.new("TextButton")
+    local ActionButton = Instance.new("TextButton")
+    local SpectateButton = Instance.new("TextButton")
+    local OrbitButton = Instance.new("TextButton")
+    local HeadSitButton = Instance.new("TextButton")
+    local BrutalButton = Instance.new("TextButton")
+
+    local function styleElement(el, isBtn)
+        el.Size = UDim2.new(1, 0, 0, 38)
+        el.BorderSizePixel = 0
+        Instance.new("UICorner", el).CornerRadius = UDim.new(0, 8)
+        if isBtn then
+            el.Font = Enum.Font.GothamSemibold
+            el.TextSize = 13
+            el.TextColor3 = Color3.new(1, 1, 1)
+        else
+            el.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+            el.TextColor3 = Color3.new(1, 1, 1)
+            el.Font = Enum.Font.Gotham
+            el.TextSize = 13
+        end
+    end
+
+    styleElement(UserInput, false)
+    UserInput.Parent = Container
+    UserInput.PlaceholderText = "Target Username..."
+
+    styleElement(RandomButton, true)
+    RandomButton.Parent = Container
+    RandomButton.Text = "RANDOM TARGET (?)"
+    RandomButton.BackgroundColor3 = Color3.fromRGB(180, 120, 0)
+
+    styleElement(ActionButton, true)
+    ActionButton.Parent = Container
+    ActionButton.Text = "START FLING"
+    ActionButton.BackgroundColor3 = Color3.fromRGB(0, 170, 90)
+
+    styleElement(SpectateButton, true)
+    SpectateButton.Parent = Container
+    SpectateButton.Text = "SPECTATE TARGET"
+    SpectateButton.BackgroundColor3 = Color3.fromRGB(40, 100, 200)
+
+    styleElement(OrbitButton, true)
+    OrbitButton.Parent = Container
+    OrbitButton.Text = "TROLL: ORBIT TARGET"
+    OrbitButton.BackgroundColor3 = Color3.fromRGB(150, 50, 150)
+
+    styleElement(HeadSitButton, true)
+    HeadSitButton.Parent = Container
+    HeadSitButton.Text = "TROLL: SIT ON HEAD"
+    HeadSitButton.BackgroundColor3 = Color3.fromRGB(100, 100, 150)
+
+    styleElement(BrutalButton, true)
+    BrutalButton.Parent = Container
+    BrutalButton.Text = "TROLL: BRUTAL SEIZURE"
+    BrutalButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+
+    --- SYSTEM LOGIC ---
+    local lp = game.Players.LocalPlayer
+    local flying = false
+    local isSpectating = false
+    local orbiting = false
+    local sitting = false
+    local brutalizing = false
+    local isMinimized = false
+
+    local initialSpawnCFrame = nil
+    if lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
+        initialSpawnCFrame = lp.Character.HumanoidRootPart.CFrame
+    end
+
+    local function unequipAll()
+        if lp.Character and lp.Character:FindFirstChild("Humanoid") then
+            lp.Character.Humanoid:UnequipTools()
+        end
+    end
+
+    local function getPlayer(name)
+        if name == "" then return nil end
+        name = name:lower()
+        for _, p in pairs(game.Players:GetPlayers()) do
+            if p.Name:lower() == name or p.DisplayName:lower() == name then return p end
+        end
+        for _, p in pairs(game.Players:GetPlayers()) do
+            if p.Name:lower():sub(1, #name) == name or p.DisplayName:lower():sub(1, #name) == name then return p end
+        end
+        return nil
+    end
+
+    task.spawn(function()
+        while task.wait(2) do
+            local count = #game.Players:GetPlayers()
+            if not RandomButton.Text:match("PICKED") then
+                RandomButton.Text = "RANDOM TARGET (1/" .. count .. ")"
+            end
+        end
+    end)
+
+    local function resetStates()
+        flying = false
+        orbiting = false
+        sitting = false
+        brutalizing = false
+        ActionButton.Text = "START FLING"
+        ActionButton.BackgroundColor3 = Color3.fromRGB(0, 170, 90)
+        OrbitButton.Text = "TROLL: ORBIT TARGET"
+        OrbitButton.BackgroundColor3 = Color3.fromRGB(150, 50, 150)
+        HeadSitButton.Text = "TROLL: SIT ON HEAD"
+        HeadSitButton.BackgroundColor3 = Color3.fromRGB(100, 100, 150)
+        BrutalButton.Text = "TROLL: BRUTAL SEIZURE"
+        BrutalButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+    end
+
+    MinimizeButton.MouseButton1Click:Connect(function()
+        isMinimized = not isMinimized
+        if isMinimized then
+            MainFrame:TweenSize(UDim2.new(0, 230, 0, 35), "Out", "Quart", 0.3, true)
+            Container.Visible = false
+            Watermark.Visible = false
+            MinimizeButton.Text = "+"
+        else
+            MainFrame:TweenSize(UDim2.new(0, 230, 0, 420), "Out", "Quart", 0.3, true)
+            task.wait(0.2)
+            Container.Visible = true
+            Watermark.Visible = true
+            MinimizeButton.Text = "-"
+        end
+    end)
+
+    CloseButton.MouseButton1Click:Connect(function() ScreenGui:Destroy() end)
+
+    RandomButton.MouseButton1Click:Connect(function()
+        local players = game.Players:GetPlayers()
+        local validPlayers = {}
+        for _, p in pairs(players) do
+            if p ~= lp then table.insert(validPlayers, p) end
+        end
+        
+        if #validPlayers > 0 then
+            local chosen = validPlayers[math.random(1, #validPlayers)]
+            UserInput.Text = chosen.Name
+            RandomButton.Text = "PICKED: " .. chosen.DisplayName
+            notify("Target selected", chosen.DisplayName)
+        end
+    end)
+
+    ActionButton.MouseButton1Click:Connect(function()
+        if not flying then
+            local target = getPlayer(UserInput.Text)
+            if target and target ~= lp then
+                local propFound = false
+                if lp.Backpack then
+                    for _, t in pairs(lp.Backpack:GetChildren()) do
+                        if t.Name:lower():match("cart") or t.Name:lower():match("couch") or t.Name:lower():match("sofa") then 
+                            lp.Character.Humanoid:EquipTool(t) 
+                            propFound = true break 
+                        end
+                    end
+                end
+
+                if not propFound then
+                    notify("Missing Item 🛒🛋️", "Spawn a Shopping Cart or Couch first!")
+                    return
+                end
+
+                resetStates()
+                flying = true
+                ActionButton.Text = "STOP FLING"
+                ActionButton.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+
+                task.spawn(function()
+                    local successLaunch = false
+                    while flying and target.Character and target.Character:FindFirstChild("HumanoidRootPart") do
+                        local hrp = lp.Character:FindFirstChild("HumanoidRootPart")
+                        local thp = target.Character:FindFirstChild("HumanoidRootPart")
+                        
+                        if hrp and thp then
+                            hrp.Velocity = Vector3.new(60000, 60000, 60000)
+                            local offset = thp.CFrame.LookVector * 3
+                            hrp.CFrame = CFrame.new(thp.Position + offset, thp.Position)
+                            
+                            if thp.Velocity.Magnitude > 150 or thp.Position.Y > 250 then
+                                successLaunch = true
+                                flying = false
+                                break
+                            end
+                        end
+                        task.wait()
+                    end
+                    
+                    resetStates()
+                    unequipAll()
+                    
+                    if successLaunch then
+                        notify("Fling Success ✅", target.DisplayName .. " has been launched! by @dshnoobie")
+                        task.wait(2)
+                        if initialSpawnCFrame and lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
+                            notify("Teleport Spawn 🔄", "Returning to original spawn!")
+                            lp.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+                            lp.Character.HumanoidRootPart.CFrame = initialSpawnCFrame
+                        end
+                    end
+                end)
+            else
+                notify("Error", "Target player not found or invalid!")
+            end
+        else
+            resetStates()
+        end
+    end)
+
+    OrbitButton.MouseButton1Click:Connect(function()
+        if not orbiting then
+            local target = getPlayer(UserInput.Text)
+            if target and target ~= lp then
+                resetStates()
+                orbiting = true
+                OrbitButton.Text = "STOP ORBIT"
+                OrbitButton.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+                
+                task.spawn(function()
+                    local speed = 10
+                    local radius = 5
+                    while orbiting and target.Character and target.Character:FindFirstChild("HumanoidRootPart") do
+                        local hrp = lp.Character:FindFirstChild("HumanoidRootPart")
+                        local thp = target.Character:FindFirstChild("HumanoidRootPart")
+                        if hrp and thp then
+                            hrp.Velocity = Vector3.new(0,0,0)
+                            hrp.CFrame = thp.CFrame * CFrame.new(math.sin(tick() * speed) * radius, 0, math.cos(tick() * speed) * radius)
+                        end
+                        task.wait()
+                    end
+                    resetStates()
+                end)
+            end
+        else
+            resetStates()
+        end
+    end)
+
+    HeadSitButton.MouseButton1Click:Connect(function()
+        if not sitting then
+            local target = getPlayer(UserInput.Text)
+            if target and target ~= lp then
+                resetStates()
+                sitting = true
+                HeadSitButton.Text = "STOP SITTING"
+                HeadSitButton.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+                
+                task.spawn(function()
+                    while sitting and target.Character and target.Character:FindFirstChild("Head") do
+                        local hrp = lp.Character:FindFirstChild("HumanoidRootPart")
+                        local tHead = target.Character:FindFirstChild("Head")
+                        if hrp and tHead then
+                            hrp.Velocity = Vector3.new(0,0,0)
+                            hrp.CFrame = tHead.CFrame * CFrame.new(0, 1.5, 0)
+                        end
+                        task.wait()
+                    end
+                    resetStates()
+                end)
+            end
+        else
+            resetStates()
+        end
+    end)
+
+    BrutalButton.MouseButton1Click:Connect(function()
+        if not brutalizing then
+            local target = getPlayer(UserInput.Text)
+            if target and target ~= lp then
+                resetStates()
+                brutalizing = true
+                BrutalButton.Text = "STOP BRUTALITY"
+                BrutalButton.BackgroundColor3 = Color3.fromRGB(150, 0, 0)
+                
+                task.spawn(function()
+                    while brutalizing and target.Character and target.Character:FindFirstChild("Head") do
+                        local hrp = lp.Character:FindFirstChild("HumanoidRootPart")
+                        local thp = target.Character:FindFirstChild("HumanoidRootPart")
+                        if hrp and thp then
+                            hrp.Velocity = Vector3.new(0,0,0)
+                            local randomAngle = CFrame.Angles(math.rad(math.random(-180, 180)), math.rad(math.random(-180, 180)), math.rad(math.random(-180, 180)))
+                            hrp.CFrame = thp.CFrame * CFrame.new(0, 0.5, -0.5) * randomAngle
+                        end
+                        task.wait()
+                    end
+                    resetStates()
+                end)
+            end
+        else
+            resetStates()
+        end
+    end)
+
+    SpectateButton.MouseButton1Click:Connect(function()
+        if not isSpectating then
+            local target = getPlayer(UserInput.Text)
+            if target and target.Character and target.Character:FindFirstChild("Humanoid") then
+                workspace.CurrentCamera.CameraSubject = target.Character.Humanoid
+                isSpectating = true
+                SpectateButton.Text = "UNSPECTATE"
+                SpectateButton.BackgroundColor3 = Color3.fromRGB(150, 50, 50)
+            end
+        else
+            if lp.Character and lp.Character:FindFirstChild("Humanoid") then
+                workspace.CurrentCamera.CameraSubject = lp.Character.Humanoid
+            end
+            isSpectating = false
+            SpectateButton.Text = "SPECTATE TARGET"
+            SpectateButton.BackgroundColor3 = Color3.fromRGB(40, 100, 200)
+        end
+    end)
+end
+
+-- LOGIC TOMBOL SUBMIT KEY (DIPERBARUI UNTUK MENGECEK 20 KEY)
+SubmitKeyBtn.MouseButton1Click:Connect(function()
+    local inputKey = KeyInput.Text
+    local isKeyValid = false
+    
+    -- Looping untuk mengecek apakah key yang dimasukkan ada di dalam daftar ValidKeys
+    for _, validKey in ipairs(ValidKeys) do
+        if inputKey == validKey then
+            isKeyValid = true
+            break
+        end
+    end
+
+    if isKeyValid then
+        KeyFrame:Destroy() -- Hapus menu login
+        notify("Access Granted!", "Welcome to the Hub! By @dshnoobie")
+        LoadMainHub() -- Panggil fungsi menu utama
+    else
+        notify("Invalid Key!", "Key is incorrect. Click 'Get Key'")
+        KeyInput.Text = ""
+    end
+end)
